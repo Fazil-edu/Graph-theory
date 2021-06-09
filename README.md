@@ -73,11 +73,11 @@ Der letzte Algorithmus zum aufspannen von minimalen Spannbäumen ist der Algorit
 
 Als Startknoten wurde der Knoten A gewählt. Die geringste ausgehende Kante ist die Kante zu C. Diese wird in den Teilspannbaum aufgenommen.
 
-![Prim Beispiel](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Prim-Example-Graph1.png "Beispiel für den Algorithmus von Prim")
+![Prim Beispiel](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Prim-Example-Graph2.png "Beispiel für den Algorithmus von Prim")
 
 Anschließend wird die nächste Kante ausgewählt. Es wird diesmal die geringste ausgehende Kante der Knoten A und C gesucht, welche noch nicht im Teilspannbaum enthalten ist und kein Kreis schließt. Deshalb wird die Kante von Knoten C zu Knoten F ausgewählt. Bei der nächsten Iteration wird die Kante zwischen E und F gewählt und eingefügt. 
 
-![Prim Beispiel](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Prim-Example-Graph1.png "Beispiel für den Algorithmus von Prim")
+![Prim Beispiel](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Prim-Example-Graph3.png "Beispiel für den Algorithmus von Prim")
 
 Zuletzt werden noch die beiden Kante mit einer Gewichtung von 6 aufgenommen und der minimale Spannbaum wurde gefunden.
 
