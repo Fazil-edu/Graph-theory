@@ -123,6 +123,7 @@ Auch hier gibt es wieder eine Verbesserung. Gemeint ist damit, dass der Weg zum 
 Es wurden alle kürzesten Wege von Knoten A zu jedem anderen Knoten gefunden. Aber wie genau ist diese Tabelle jetzt zu verstehen?
 Die Tabelle wird anhand des Weges von Knoten A zu Knoten F erklärt. Betrachtet man die Zeile F ist zu sehen, dass die Distanz 10 beträgt. Außerdem sieht man den direkten Vorgänger (Knoten E). Anschließend betrachtet man die Zeile des Vorgängers. Hier sieht man, dass dieser auch wieder einen Vorgänger hat (hier: Knoten C). Wenn man nun diesen betrachtet ist zu sehen, dass dieser den Startknoten als Vorgänger hat und somit der Pfad konstruiert werden kann. D. h. Der kürzeste Weg von Knoten A zu Knoten F führt über Knoten C und Knoten E zu Knoten F bei einer Distanz von 10.
 
+
 ## A*-Algorithmus
 
 Der A*-Algorithmus kann als erweiterter Algorithmus von Dijkstra gesehen werden. Er bestimmt auch kürzeste Wege. Allerdings bestimmt dieser nicht alle kürzesten Wege von einem Startknoten zu allen anderen Knoten, sondern von einem frei wählbaren Startknoten zu einem frei wählbaren Endknoten. Außerdem gibt es bei der Entscheidung welcher Knoten als nächstes betrachtet wird einen Unterschied. Der A*-Algorithmus nutzt für diese Entscheidung eine Heuristik. Diese muss jedoch bestimmte Bedingungen erfüllen. 
@@ -148,24 +149,32 @@ Durch Knoten B als Zwischenknoten, wird lediglich der Weg zu Knoten D verkürzt.
 Es ist zu erkennen, dass sich die Distanz und somit auch f von Knoten F um 1 verringert. Die Werte von Knoten D bleiben unverändert. Dadurch kommt es nun zur Abbruchbedingung, da f von Knoten F kleiner ist als f von Knoten D. Der kürzeste Weg von Knoten A zu Knoten F wurde also gefunden. Außerdem ist anzumerken, dass wirklich nur die Verbindung von A zu F, sowie die Verbindungen von A zu den Knoten auf dem Weg zu F optimal sind. Zu verstehen ist die Endtabelle wie folgt: Man guckt in die Reihe des Endknotens und betrachtet den Vorgänger. Anschließend betrachtet man die Reihe des Vorgängers und sucht den Vorgänger von diesen. Dies wird so lange fortgeführt bis es keinen Vorgänger mehr gibt (Vorgänger Startknoten = -). Zuletzt ist die Reihenfolge umzudrehen und man erhält den Weg von Startknoten zum Zielknoten. Im Beispiel lautet der Weg somit A -> C -> E -> F.
 
 
+## Floyd-Warshall Algorithmus
 
+Der Floyd-Warshall Algorithmus löst das All-Pairs-Shortest-Path-Problem (Alle paarweise kürzesten Wege werden gesucht). Zu Beginn wird die Initialmatrix erstellt. Anschließend wird durch alle Knoten durch iteriert. Die Zeile und Spalte des ausgewählten bleibt unberührt. Für alle anderen Einträge der Matrix wird überprüft, ob mithilfe des ausgewählten Knotens ein kürzerer Weg gefunden werden kann. 
 
+![Beispiel Graph](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Example-Graph-Shortest-Path.png "Beispiel Graph")
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table1.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+Es wurde die Initialmatrix erstellt. Im Folgenden wird durch die einzelnen Knoten durch iteriert.
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table2.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+Wenn der Knoten A als Zwischenknoten zur Verfügung steht, entsteht eine Verbindung zwischen den Knoten C und Knoten D und eine Verbindung zwischen den Knoten B und C. Auf die folgenden Iterationen wird nicht genauer eingegangen, da es vom Prinzip genau gleich bleibt.
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table3.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table4.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table5.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table6.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table7.png "Beispiel für den Floyd-Warshall Algorithmus")
 
+Es wurde durch den letzten Knoten durch iteriert und es wurden alle kürzesten Wege gefunden. Beispielhaft wird zum Vergleich mit dem A*-Algorithmus der Weg von Knoten A zu Knoten F betrachtet. Um den Weg anhand der Tabelle herauszufinden, können die Ergebnisse rekursiv aufgespalten werden. 
 
+![Beispiel Floyd](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Floyd-Table%20result%20explanation.png "Beispiel Floyd-Ergebnistabelle aufgespalten")
 
-
-
-
-
-
-
-
+Abgelesen aus dem Baum ergibt sich dann der Weg A -> C -> E -> F mit einer Distanz von 10.
