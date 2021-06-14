@@ -122,3 +122,50 @@ Auch hier gibt es wieder eine Verbesserung. Gemeint ist damit, dass der Weg zum 
 
 Es wurden alle kürzesten Wege von Knoten A zu jedem anderen Knoten gefunden. Aber wie genau ist diese Tabelle jetzt zu verstehen?
 Die Tabelle wird anhand des Weges von Knoten A zu Knoten F erklärt. Betrachtet man die Zeile F ist zu sehen, dass die Distanz 10 beträgt. Außerdem sieht man den direkten Vorgänger (Knoten E). Anschließend betrachtet man die Zeile des Vorgängers. Hier sieht man, dass dieser auch wieder einen Vorgänger hat (hier: Knoten C). Wenn man nun diesen betrachtet ist zu sehen, dass dieser den Startknoten als Vorgänger hat und somit der Pfad konstruiert werden kann. D. h. Der kürzeste Weg von Knoten A zu Knoten F führt über Knoten C und Knoten E zu Knoten F bei einer Distanz von 10.
+
+## A*-Algorithmus
+
+Der A*-Algorithmus kann als erweiterter Algorithmus von Dijkstra gesehen werden. Er bestimmt auch kürzeste Wege. Allerdings bestimmt dieser nicht alle kürzesten Wege von einem Startknoten zu allen anderen Knoten, sondern von einem frei wählbaren Startknoten zu einem frei wählbaren Endknoten. Außerdem gibt es bei der Entscheidung welcher Knoten als nächstes betrachtet wird einen Unterschied. Der A*-Algorithmus nutzt für diese Entscheidung eine Heuristik. Diese muss jedoch bestimmte Bedingungen erfüllen. 
+
+![Beispiel Graph](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Example-Graph-Shortest-Path.png "Beispiel Graph")
+
+Die Heuristik, die hier angewendet wird, besteht aus der Distanz und der geringsten ausgehenden Kante, welche summiert f ergeben. Im folgenden Beispiel ist der Knoten A als Startknoten und der Knoten F als Endknoten bestimmt worden. 
+
+![Beispiel A*](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/AStar-Table1.png "Beispiel des A*-Algorithmus")
+
+Zu Beginn werden alle Distanzen, der mit dem Startknoten verbundenen Knoten, bestimmt. Wenn auf diesen nun die geringsten ausgehenden Kanten addiert werden erhält man f (Bsp. Knoten C: Von A zu C = 4 und von C zu E = 1 < C zu F = 7, somit ist f = 4 + 1 = 5). Wenn der Algorithmus von Dijkstra angewendet werden würde, würde der Knoten B gewählt werden, da die Distanz lediglich 1 beträgt. Hier wird jedoch Knoten C gewählt, da f am kleinsten ist.
+
+![Beispiel A*](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/AStar-Table2.png "Beispiel des A*-Algorithmus")
+
+Es wird der erste Weg zum Zielknoten gefunden. Jedoch steht noch nicht fest, ob dieser Weg auch der optimale Weg ist. Für die nächste Iteration wird der Knoten B gewählt.
+
+![Beispiel A*](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/AStar-Table3.png "Beispiel des A*-Algorithmus")
+
+Durch Knoten B als Zwischenknoten, wird lediglich der Weg zu Knoten D verkürzt. Das kleinste f, welches noch nicht abgearbeitet wurde, ist 10 und gehört zu dem Knoten E. 
+
+![Beispiel A*](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/AStar-Table4.png "Beispiel des A*-Algorithmus")
+
+Es ist zu erkennen, dass sich die Distanz und somit auch f von Knoten F um 1 verringert. Die Werte von Knoten D bleiben unverändert. Dadurch kommt es nun zur Abbruchbedingung, da f von Knoten F kleiner ist als f von Knoten D. Der kürzeste Weg von Knoten A zu Knoten F wurde also gefunden. Außerdem ist anzumerken, dass wirklich nur die Verbindung von A zu F, sowie die Verbindungen von A zu den Knoten auf dem Weg zu F optimal sind. Zu verstehen ist die Endtabelle wie folgt: Man guckt in die Reihe des Endknotens und betrachtet den Vorgänger. Anschließend betrachtet man die Reihe des Vorgängers und sucht den Vorgänger von diesen. Dies wird so lange fortgeführt bis es keinen Vorgänger mehr gibt (Vorgänger Startknoten = -). Zuletzt ist die Reihenfolge umzudrehen und man erhält den Weg von Startknoten zum Zielknoten. Im Beispiel lautet der Weg somit A -> C -> E -> F.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
