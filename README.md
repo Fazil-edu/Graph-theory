@@ -100,11 +100,25 @@ Wiederhole Schritt 3 bis 5 bis alle Knoten ausgewählt wurden.
 
 ![Beispiel Graph](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Example-Graph-Shortest-Path.png "Beispiel Graph")
 
+Im Folgenden werden Änderungen in der Tabelle rot markiert. Außerdem sind leere Felder unendliche Verbindungen.
 
+![Beispiel Dijkstra](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Dijkstra-Table1.png "Beispiel für den Algorithmus von Dijkstra")
 
+In der initialen Tabelle sind alle direkten Verbindungen zum Startknoten vermerkt (Startknoten hier: Knoten A). Da die Kante mit der kürzesten Distanz zwischen A und B mit einer Gewichtung von 1 liegt, wird Knoten B ausgewählt. 
 
+![Beispiel Dijkstra](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Dijkstra-Table2.png "Beispiel für den Algorithmus von Dijkstra")
 
+Der Weg von Knoten A über Knoten B zu Knoten D ist kürzer (7) als der direkte Weg von Knoten A zu Knoten D (8). Darum wird die Distanz auf 7 gesetzt und der Vorgänger auf B. Für die nächste Iteration wird der Knoten C gewählt.
 
+![Beispiel Dijkstra](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Dijkstra-Table3.png "Beispiel für den Algorithmus von Dijkstra")
 
+Nun können zum ersten Mal Wege von Knoten A zu den Knoten E und F verzeichnet werden. Als Nächstes wird der Knoten E ausgewählt, da er den kürzesten Weg, der noch nicht bearbeitet wurde, besitzt.
 
+![Beispiel Dijkstra](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Dijkstra-Table4.png "Beispiel für den Algorithmus von Dijkstra")
 
+Auch hier gibt es wieder eine Verbesserung. Gemeint ist damit, dass der Weg zum Knoten F verkürzt werden kann, wenn man über den Knoten E geht. Dadurch verringert sich die Distanz auf 10. Im Folgenden wird auf eine genauere Betrachtung verzichtet, da keine Änderungen mehr vorgenommen werden.
+
+![Beispiel Dijkstra](https://github.com/JoBo33/Graph-Theory/blob/main/GraphTheory/Examples/Dijkstra-Table5.png "Beispiel für den Algorithmus von Dijkstra")
+
+Es wurden alle kürzesten Wege von Knoten A zu jedem anderen Knoten gefunden. Aber wie genau ist diese Tabelle jetzt zu verstehen?
+Die Tabelle wird anhand des Weges von Knoten A zu Knoten F erklärt. Betrachtet man die Zeile F ist zu sehen, dass die Distanz 10 beträgt. Außerdem sieht man den direkten Vorgänger (Knoten E). Anschließend betrachtet man die Zeile des Vorgängers. Hier sieht man, dass dieser auch wieder einen Vorgänger hat (hier: Knoten C). Wenn man nun diesen betrachtet ist zu sehen, dass dieser den Startknoten als Vorgänger hat und somit der Pfad konstruiert werden kann. D. h. Der kürzeste Weg von Knoten A zu Knoten F führt über Knoten C und Knoten E zu Knoten F bei einer Distanz von 10.
